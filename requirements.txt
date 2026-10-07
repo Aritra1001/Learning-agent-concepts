@@ -1,0 +1,7 @@
+langchain>=1.0
+langchain_core
+langgraph>=1.0
+langsmith
+langchain-groq
+python-dotenv
+truststore
