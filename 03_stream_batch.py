@@ -1,4 +1,4 @@
-import os
+import asyncio
 from dotenv import load_dotenv
 from langchain.chat_models import init_chat_model
 
@@ -56,4 +56,21 @@ model=init_chat_model(
 #     print('-' * 50)
 
 
-# ainvoke() - 
+# ainvoke() - asynchronous invocation
+# async def main():
+#     response = await model.ainvoke("Explain LangChain.")
+#     print(response.content)
+
+
+# asyncio.run(main())
+
+
+# astream() - asynchronous streaming
+async def main():
+    async for chunk in model.astream(
+         "Explain LangGraph in detail."
+    ):
+        print(chunk.content, end="", flush=True)
+
+
+asyncio.run(main())
